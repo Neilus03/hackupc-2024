@@ -22,36 +22,33 @@ from PIL import Image
 from io import BytesIO
 
 class GarmentTripletDataset(Dataset):
-    def __init__(self, csv_file, transform=None):
+    def __init__(self, root_dir, transform=None):
         """
         Args:
-            csv_file (string): Path to the CSV file with image URLs.
+            root_dir (string): Directory with all the garment images organized in subdirectories.
             transform (callable, optional): Optional transform to be applied on a sample.
         """
-        self.data_frame = pd.read_csv(csv_file)
+        self.root_dir = root_dir
         self.transform = transform
+        self.garments = [d for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d))]
 
     def __len__(self):
-        return len(self.data_frame)
+        return len(self.garments)
 
     def __getitem__(self, idx):
-        if torch.is_tensor(idx):
-            idx = idx.tolist()
+        garment_folder = os.path.join(self.root_dir, self.garments[idx])
+        views = os.listdir(garment_folder)  # List the files in the garment's directory
 
-        # Get the URLs for the images
-        img_url_anchor = self.data_frame.iloc[idx, 1]
-        anchor = self.load_image(img_url_anchor)
-        if anchor is None:
-            return None  # Returning None for the entire tuple if any image fails to load
-        img_url_positive = self.data_frame.iloc[idx, 2]
-        # Find a different row for the negative sample
-        negative_idx = (idx + 1) % len(self.data_frame)
-        img_url_negative = self.data_frame.iloc[negative_idx, 1]  # You can randomize this more robustly
+        # Randomly select two different images for the anchor and positive, and one from another garment for the negative
+        anchor_idx, positive_idx = random.sample(range(len(views)), 2)
+        anchor = Image.open(os.path.join(garment_folder, views[anchor_idx]))
+        positive = Image.open(os.path.join(garment_folder, views[positive_idx]))
 
-        # Load images from URLs
-        anchor = self.load_image(img_url_anchor)
-        positive = self.load_image(img_url_positive)
-        negative = self.load_image(img_url_negative)
+        # Choose negative from a different garment
+        negative_garment_idx = (idx + random.randint(1, len(self.garments) - 1)) % len(self.garments)
+        negative_garment_folder = os.path.join(self.root_dir, self.garments[negative_garment_idx])
+        negative_views = os.listdir(negative_garment_folder)
+        negative = Image.open(os.path.join(negative_garment_folder, negative_views[random.randint(0, len(negative_views) - 1)]))
 
         if self.transform:
             anchor = self.transform(anchor)
@@ -82,12 +79,18 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
+# Initialize dataset
+root_dir = 'path_to_garments_directory'  # Update this to your directory path
+dataset = GarmentTripletDataset(root_dir, transform=transform)
+dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
+
+'''
 # Path to your CSV file
 csv_file = 'inditex_df_no_nan.csv'
 
 # Initialize dataset
 dataset = GarmentTripletDataset(csv_file, transform=transform)
-dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
+dataloader = DataLoader(dataset, batch_size=32, shuffle=True)'''
 
 print(dataloader)
 

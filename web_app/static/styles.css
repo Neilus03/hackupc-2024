@@ -1,7 +1,7 @@
 html {
     font: 5vmin/1.3 serif;
     overflow: hidden;
-    background: #123;
+    background: rgb(0, 0, 0);
 }
 
 body, head {
@@ -9,7 +9,7 @@ body, head {
     font-size: 52px;
     color: transparent;
     font-family: 'Arial', sans-serif;
-    background-color: #666666;
+    background-color: #ffffff;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -37,22 +37,50 @@ nav ul li {
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-size: 18px;
-    padding: 10px 20px;
+
+    color: #333; /* Set link text color */
+    text-decoration: none; /* Remove default underline */
+    font-size: 16px; /* Set link font size */
+    margin: 0 10px; /* Add spacing between links */
+    transition: color 0.3s ease; /* Add smooth transition for hover effect */
 }
 
 nav ul li a:hover {
-    background-color: rgb(0, 250, 112);
+    color: #a9afb9;
 }
 
 h1 {
+    
     text-align: center; /* Centers the text horizontally */
-    width: 100%; /* Ensures the element spans the full width of its container */
+    font-size: 25px; /* Adjust font size as needed */
+    color: #333; /* Choose a suitable text color */
+    text-transform: uppercase; /* Convert text to uppercase for a bold look */
+    letter-spacing: 2px; /* Add letter spacing for emphasis */
     margin-top: 20px; /* Optional: adds some space at the top */
     margin-bottom: 20px; /* Optional: adds some space at the bottom */
+    font-family: 'Arial Black', sans-serif; /* Use a bold font for emphasis */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
+    /* Add any additional styling properties to make your header fancy */
 }
+
+
+h4 {
+    position: absolute; /* Position the button absolutely within its containing element */
+    top: 11%; /* Position the top edge of the button at the vertical center of the viewport */
+    left: 51%; /* Position the left edge of the button at the horizontal center of the viewport */
+    transform: translate(-50%, -50%); /* Move the button back by half of its own width and height to center it */
+    /*text-align: center; /* Centers the text horizontally */
+    font-size: 36px; /* Adjust font size as needed */
+    color: #333; /* Choose a suitable text color */
+    text-transform: uppercase; /* Convert text to uppercase for a bold look */
+    letter-spacing: 2px; /* Add letter spacing for emphasis */
+    margin-top: 20px; /* Optional: adds some space at the top */
+    margin-bottom: 20px; /* Optional: adds some space at the bottom */
+    font-family: 'Arial Black', sans-serif; /* Use a bold font for emphasis */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
+    /* Add any additional styling properties to make your header fancy */
+}
+
 
 @media (max-width: 600px) {
     h1 {
@@ -89,15 +117,16 @@ h2 {
 
 .category, .button {
     margin: 10px;
-    border: 1px solid #ffffff;
-    border-radius: 8px;
-    padding: 10px;
+    /*border: 1px solid #000000;*/
+    /*border-radius: 8px;*/
+    border:none;
+    padding: 3px;
     text-align: center;
     cursor: pointer; /* Indicates clickable items */
     background-color: rgb(0, 0, 0);
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 10px;
     z-index: 100;  /* Higher z-index to ensure it's above the floating dots */
 }
@@ -106,7 +135,49 @@ h2 {
     width: 200px;
 }
 
+.button1 {
+    z-index: 100;
+    position: absolute; /* Position the button absolutely within its containing element */
+    top: 25%; /* Position the top edge of the button at the vertical center of the viewport */
+    left: 50%; /* Position the left edge of the button at the horizontal center of the viewport */
+    transform: translate(-50%, -50%); /* Move the button back by half of its own width and height to center it */
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #000000;
+
+    font-size: 16px;
+    text-align: center;
+    transition: color 0.5s ease;
+}
+
+.button1:hover {
+    color: #a9afb9; /* Change background color on hover */
+}
+
+
+
 .button {
+    z-index: 100;
+    position: absolute; /* Position the button absolutely within its containing element */
+    top: 45%; /* Position the top edge of the button at the vertical center of the viewport */
+    left: 50%; /* Position the left edge of the button at the horizontal center of the viewport */
+    transform: translate(-50%, -50%); /* Move the button back by half of its own width and height to center it */
+    text-decoration: none;
+    background-color: #000000;
+    color: #ffffff;
+
+    font-size: 16px;
+    text-align: center;
+    transition: color 0.5s ease;
+}
+
+
+.button:hover {
+    color: #a9afb9; /* Change background color on hover */
+}
+
+
+.button2 {
     z-index: 100;  /* Ensures the button is above other content */
     position: relative; /* Standard positioning */
     display: block; /* Block display but with specific width to avoid full width */
@@ -121,18 +192,19 @@ h2 {
     font-size: 16px; /* Smaller font size for the text inside the button */
     line-height: 30px; /* Aligns text vertically */
     text-align: center; /* Aligns text horizontally */
+    transition: color 0.5s ease;
 }
 
-.button:hover, .category:hover {
-    background-color: darkred;
+.button2:hover, .category:hover {
+    color: #000000;
 }
 
 .clothing-image {
     width: 100%;
     max-width: 200px; /* Adjust as needed */
     height: auto;
-    border-radius: 5px;
-    margin-bottom: 5px;
+    border-radius: 0px;
+    margin-bottom: 0px;
 }
 
 @keyframes move {

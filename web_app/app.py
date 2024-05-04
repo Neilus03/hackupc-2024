@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import wave
+import cv2
+from inference_sdk import InferenceHTTPClient
+
+import base64
+
+
 
 app = Flask(__name__)
 
@@ -35,6 +41,8 @@ def upload_audio():
             audio_file.write(audio.read())
         return jsonify({"message": "Audio received and saved successfully!"}), 200
     return jsonify({"error": "No audio file uploaded"}), 400
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)

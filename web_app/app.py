@@ -32,6 +32,10 @@ pd.set_option('display.max_colwidth', None)
 def home():
     return render_template('home.html')
 
+@app.route('/')
+def aboutus():
+    return render_template('aboutus.html')
+
 @app.route('/category/all')
 def all_categories():
     # Pass all clothing types and their first image

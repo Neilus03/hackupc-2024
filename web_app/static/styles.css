@@ -9,7 +9,7 @@ body, head {
     font-size: 52px;
     color: transparent;
     font-family: 'Arial', sans-serif;
-    background-color: #666666;
+    background-color: #92b2cf;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -144,9 +144,37 @@ h2 {
     }
 }
 
+/* Mic button styling */
+.mic-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text/icon */
+    border: none; /* No borders */
+    padding: 15px 32px; /* Padding around the text */
+    text-align: center; /* Center the icon/text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Necessary for centering */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin around the button */
+    cursor: pointer; /* Cursor as pointer */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Simple shadow for depth */
+    transition: 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Footer styling to center content */
+footer {
+    text-align: center; /* Centers the button in the footer */
+    padding: 20px; /* Padding for spacing */
+}
+
+.mic-button:hover {
+    background-color: #f70303; /* Slightly darker green on hover */
+}
+
 .floating-dot {
     position: fixed;
     top: 50%;
+
     left: 50%;
     width: 3em;
     height: 3em;
@@ -158,9 +186,9 @@ h2 {
 .floating-dot::before {
     content: '.';
     text-shadow: 
-      -1.5em -1.5em 10px hsla(0, 100%, 100%, .9),   /* Changed from 50% lightness to 70% for a lighter red */
-      1.5em -1.5em 10px hsla(60, 100%, 100%, .9),   /* Lighter yellow */
-      -1.5em 1.5em 10px hsla(120, 100%, 100%, .9),  /* Lighter green */
-      1.5em 1.5em 10px hsla(240, 100%, 100%, .9);   /* Lighter blue instead of dark blue */
+      -1.5em -1.5em 10px hsla(0, 100%, 50%, 0.3),   /* Changed from 50% lightness to 70% for a lighter red */
+      1.5em -1.5em 10px hsla(223, 100%, 52%, 0.9),   /* Lighter yellow */
+      -1.5em 1.5em 10px hsla(292, 100%, 51%, 0.1),  /* Lighter green */
+      1.5em 1.5em 10px hsla(69, 100%, 50%, 0.9);   /* Lighter blue instead of dark blue */
 }
 

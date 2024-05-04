@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
-import wave
+import soundfile as sf
 
 app = Flask(__name__)
 
@@ -29,12 +29,17 @@ def all_categories():
 def upload_audio():
     if 'audio' in request.files:
         audio = request.files['audio']
-        # Save audio directly without converting to mp3
-        audio_filename = "/web_app/audio/received_audio.wav"
-        with open(audio_filename, 'wb') as audio_file:
-            audio_file.write(audio.read())
-        return jsonify({"message": "Audio received and saved successfully!"}), 200
-    return jsonify({"error": "No audio file uploaded"}), 400
-
+        print("Audio File Received:", audio.filename)  # Debugging: log filename
+        try:
+            filename = 'received_audio2.wav'
+            audio.save(filename)
+            print("Audio Saved Successfully")  # Confirm audio is saved
+            return jsonify({"message": "Audio saved successfully!"}), 200
+        except Exception as e:
+            print("Error processing audio file:", e)  # Log errors
+            return jsonify({"error": "Failed to process the audio file: " + str(e)}), 500
+    else:
+        print("No audio file uploaded")  # Log if no file is detected
+        return jsonify({"error": "No audio file uploaded"}), 400
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=False, port=8080)

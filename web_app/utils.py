@@ -9,6 +9,7 @@ import numpy as np
 import os
 from collections import Counter
 import pandas as pd
+from tqdm import tqdm
 
 def get_closest_in_same_cluster(df, folder, file, n=1):
     """
@@ -35,6 +36,10 @@ def get_closest_from_embbedings(df, emb, n=1):
     df["dist"] = df["embeddings"].apply(lambda x: np.dot(x.reshape(1, 512), emb.T)/(np.linalg.norm(x) * np.linalg.norm(emb)))
     # print(df.head())
     df = df.sort_values("dist", ascending=False)
+    
+    txt2dict = ourName2TheirName()
+    # add a new column with the image link using the folder and img_name
+    df["img_link"] = df.apply(lambda x: txt2dict.get(f"{x['folder']}/{x['img_name']}.jpg"), axis=1)
     return df.head(n)
 
 
@@ -96,13 +101,17 @@ def convert_to_wav(input_file, output_file):
     return output_file
 
 
-def ourName2TheirName(our_name):
+def ourName2TheirName():
     """
     Convert our name (40316/3.jpg) to their name (https://static.zara.net/photos///2024/V/0/3/p/4428/664/500/2/w/2048/4428664500_3_1_1.jpg?ts=1709724616829)
     """
-    with open("/data/users/mpilligua/hackathon/images/filenames.txt") as f:
+    with open("/data/users/mpilligua/hackupc-2024/filenames.txt") as f:
         lines = f.readlines()
-        
-    for line in lines:
-        if our_name in line:
-            return line.split(": ")[1]
+    
+    txt2dict = {}
+    for line in tqdm(lines):
+        try:
+            txt2dict[line.split(": ")[0]] = line.split(": ")[1]
+        except:
+            print(line)
+    return txt2dict

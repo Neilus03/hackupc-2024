@@ -5,7 +5,7 @@ from retrieval import retrieve
 
 app = Flask(__name__)
 
-data = pd.read_csv('.\inditextech_hackupc_challenge_images.csv')
+data = pd.read_csv('/data/users/mpilligua/hackupc-2024/web_app/inditextech_hackupc_challenge_images.csv')
 
 # Expanded database of images sampling randomly from the original dataset
 CLOTHING_IMAGES = {
@@ -35,18 +35,18 @@ def upload_audio():
     if 'audio' in request.files:
         audio = request.files['audio']
         print("Audio File Received:", audio.filename)  # Debugging: log filename
-        try:
-            # Define the path to save the audio
-            filename = os.path.join(audio_directory, 'received_audio2.wav')
-            audio.save(filename)
-            
-            print("Audio Saved Successfully in", filename)  # Confirm audio is saved
-            retrieved_images = retrieve(filename)
-            print(retrieve.head())
-            return jsonify({"message": "Audio saved successfully!"}), 200
-        except Exception as e:
-            print("Error processing audio file:", e)  # Log errors
-            return jsonify({"error": "Failed to process the audio file: " + str(e)}), 500
+        # try:
+        # Define the path to save the audio
+        filename = os.path.join(audio_directory, 'received_audio2.wav')
+        audio.save(filename)
+        
+        print("Audio Saved Successfully in", filename)  # Confirm audio is saved
+        retrieved_images = retrieve(filename)
+        print(retrieved_images.head())
+        return jsonify({"message": "Audio saved successfully!"}), 200
+        # except Exception as e:
+            # print("Error processing audio file:", e)  # Log errors
+            # return jsonify({"error": "Failed to process the audio file: " + str(e)}), 500
     else:
         print("No audio file uploaded")  # Log if no file is detected
         return jsonify({"error": "No audio file uploaded"}), 400

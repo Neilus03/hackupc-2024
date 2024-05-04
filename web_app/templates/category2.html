@@ -5,7 +5,7 @@
     <title>All Clothes</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.example.com/lame.min.js"></script>
     <link href="/static/favicon_io/favicon.ico" rel="icon">
 </head>
 <body>
@@ -22,7 +22,6 @@
     
     <main>
         <h1>Our Clothing Selection</h1>
-        <button onclick="startRecording()" class="mic-button"><i class="fas fa-microphone"></i></button>
         <div class="clothing-container">
             {% for category, image in categories.items() %}
                 <div class="category" id="category-{{ category }}">
@@ -35,11 +34,16 @@
                 </div>
             {% endfor %}
         </div>
-        <script src="{{ url_for('static', filename='js/record.js') }}"></script>
     </main>
     
     <footer>
+<<<<<<< HEAD:web_app/templates/category2.html
         <a href="/" class="button2">HOME</a>
+=======
+        <!-- Moved the microphone button to the footer and styled as a home button -->
+        <button onclick="startRecording()" class="mic-button"><i class="fas fa-microphone"></i></button>
+>>>>>>> cb56e684da7b6e1073a28177c11a6a6914eb835f:web_app/templates/category.html
     </footer>
+    <script src="{{ url_for('static', filename='js/record.js') }}"></script>
 </body>
 </html>

@@ -1,0 +1,156 @@
+html {
+    font: 5vmin/1.3 serif;
+    overflow: hidden;
+    background: #123;
+}
+
+body, head {
+    display: block;
+    font-size: 52px;
+    color: transparent;
+    font-family: 'Arial', sans-serif;
+    background-color: #666666;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+
+nav {
+    background-color: #ffffff;
+    padding: 10px 0;
+    z-index: 100;  /* Higher z-index to ensure it's above the floating dots */
+    position: relative; /* Position must be set for z-index to take effect */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+nav ul li a:hover {
+    background-color: rgb(0, 250, 112);
+}
+
+h1 {
+    text-align: center; /* Centers the text horizontally */
+    width: 100%; /* Ensures the element spans the full width of its container */
+    margin-top: 20px; /* Optional: adds some space at the top */
+    margin-bottom: 20px; /* Optional: adds some space at the bottom */
+}
+
+@media (max-width: 600px) {
+    h1 {
+        color: #ffffff;
+        font-size: 24px; /* Smaller font size for small devices */
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+h2 {
+    text-align: center;  /* Centers the text horizontally */
+    font-size: 3em;      /* Makes the font size larger than the default */
+    color: #fef4f4;         /* Optional: sets a different color, if needed */
+    margin: 20px 0;      /* Adds spacing above and below the text */
+}
+
+.center-content, .clothing-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    height: 80vh;
+    z-index: 100;  /* Higher z-index to ensure it's above the floating dots */
+}
+
+
+.category, .button {
+    margin: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer; /* Indicates clickable items */
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-decoration: none;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10px;
+    z-index: 100;  /* Higher z-index to ensure it's above the floating dots */
+}
+
+.category {
+    width: 200px;
+}
+
+.button {
+    z-index: 100;  /* Same for the button */
+    position: relative; /* Ensure position is set */
+    display: block;
+    margin: 20px auto;
+    text-decoration: none;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 0px;
+    font-size: 20px;
+}
+
+.button:hover, .category:hover {
+    background-color: darkred;
+}
+
+.clothing-image {
+    width: 100%;
+    max-width: 200px; /* Adjust as needed */
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+@keyframes move {
+    from {
+      transform: rotate(0deg) scale(12) translateX(-20px);
+    }
+    to {
+      transform: rotate(360deg) scale(18) translateX(20px);
+    }
+}
+
+.floating-dot {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 3em;
+    height: 3em;
+    mix-blend-mode: screen;
+    animation: move infinite ease-in-out alternate;
+    z-index: 10;  /* Lower than nav and button */
+}
+
+.floating-dot::before {
+    content: '.';
+    text-shadow: 
+      -1.5em -1.5em 10px hsla(0, 100%, 100%, .9),   /* Changed from 50% lightness to 70% for a lighter red */
+      1.5em -1.5em 10px hsla(60, 100%, 100%, .9),   /* Lighter yellow */
+      -1.5em 1.5em 10px hsla(120, 100%, 100%, .9),  /* Lighter green */
+      1.5em 1.5em 10px hsla(240, 100%, 100%, .9);   /* Lighter blue instead of dark blue */
+}
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        background-color: white;
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .contact-info {
+        border: 2px solid #00a650;
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .contact-item {
+        margin-bottom: 10px;
+    }
+    .contact-item:last-child {
+        margin-bottom: 0;
+    }
+    .icon {
+        color: #00a650;
+        margin-right: 10px;
+    }
+    .contact-title {
+        margin-top: 0;
+        color: #00a650;
+        border-bottom: 2px solid #00a650;
+    }
+    .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="logo1.png" alt="Company Logo">
+        <img src="logo2.png" alt="Partner Logo">
+    </header>
+    <h2 class="contact-title">CONTACTO</h2>
+    <div class="contact-info">
+        <div class="contact-item">
+            <span class="icon">📍</span>
+            <span>Dirección: [Your Address Here]</span>
+        </div>
+        <div class="contact-item">
+            <span class="icon">📞</span>
+            <span>Teléfono: [Your Phone Here]</span>
+        </div>
+        <div class="contact-item">
+            <span class="icon">✉️</span>
+            <span>E-Mail: [Your Email Here]</span>
+        </div>
+        <div class="contact-item">
+            <span class="icon">🏢</span>
+            <span>Sociedad: [Your Company Details Here]</span>
+        </div>
+    </div>
+    <button class="whatsapp-button">💬</button>
+</div>
+</body>
+</html>

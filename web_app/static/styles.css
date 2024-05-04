@@ -9,11 +9,7 @@ body, head {
     font-size: 52px;
     color: transparent;
     font-family: 'Arial', sans-serif;
-<<<<<<< HEAD
     background-color: #ffffff;
-=======
-    background-color: #92b2cf;
->>>>>>> cb56e684da7b6e1073a28177c11a6a6914eb835f
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -97,8 +93,8 @@ h4 {
 
 h2 {
     text-align: center;  /* Centers the text horizontally */
-    font-size: 3em;      /* Makes the font size larger than the default */
-    color: #fef4f4;         /* Optional: sets a different color, if needed */
+    font-size: 13em;      /* Makes the font size larger than the default */
+    color: #c5feff;         /* Optional: sets a different color, if needed */
     margin: 20px 0;      /* Adds spacing above and below the text */
 }
 

@@ -12,6 +12,7 @@ import pandas as pd
 from tqdm import tqdm
 from pydub import AudioSegment
 import os
+from sklearn.cluster import KMeans
 
 def get_closest_in_same_cluster(df, folder, file, n=1):
     """
@@ -87,7 +88,7 @@ def compute_KMeans(df, n_clusters=50):
     """
     Compute KMeans clustering
     """
-    from sklearn.cluster import KMeans
+    
     kmeans = KMeans(n_clusters=n_clusters, random_state=0)
     df["cluster"] = kmeans.fit(df["embeddings"].values.tolist()).labels_
     return df, kmeans

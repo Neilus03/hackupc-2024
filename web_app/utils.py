@@ -10,6 +10,8 @@ import os
 from collections import Counter
 import pandas as pd
 from tqdm import tqdm
+from pydub import AudioSegment
+import os
 
 def get_closest_in_same_cluster(df, folder, file, n=1):
     """
@@ -26,19 +28,19 @@ def get_closest_in_same_cluster(df, folder, file, n=1):
     return itemsInSameCluster.head(n)
 
 
-def get_closest_from_embbedings(df, emb, n=1):
+def get_closest_from_embbedings(df, emb, n=1, kmeans=None):
     """
     Get the closest n images in the same cluster
     """
+    if kmeans is not None:
+        cluster = kmeans.predict(emb)
+        df = df[df["cluster"] == cluster]
     
     # compute the cosine similarity between emb and each row in df
-    # print(df["embeddings"].iloc[0].reshape(512, 1).shape, emb.shape)
     df["dist"] = df["embeddings"].apply(lambda x: np.dot(x.reshape(1, 512), emb.T)/(np.linalg.norm(x) * np.linalg.norm(emb)))
-    # print(df.head())
     df = df.sort_values("dist", ascending=False)
     
     txt2dict = ourName2TheirName()
-    # add a new column with the image link using the folder and img_name
     df["img_link"] = df.apply(lambda x: txt2dict.get(f"{x['folder']}/{x['img_name']}.jpg"), axis=1)
     return df.head(n)
 
@@ -81,8 +83,14 @@ def get_embeddings_df(folder = "/data/users/mpilligua/hackathon/embeddings"):
     df["embeddings"] = embeddings
     return df 
 
-from pydub import AudioSegment
-import os
+def compute_KMeans(df, n_clusters=50):
+    """
+    Compute KMeans clustering
+    """
+    from sklearn.cluster import KMeans
+    kmeans = KMeans(n_clusters=n_clusters, random_state=0)
+    df["cluster"] = kmeans.fit(df["embeddings"].values.tolist()).labels_
+    return df, kmeans
 
 def convert_to_wav(input_file, output_file):
     # Load the audio file

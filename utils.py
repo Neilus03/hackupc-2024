@@ -32,9 +32,9 @@ def get_closest_from_embbedings(df, emb, n=1):
     """
     
     # compute the cosine similarity between emb and each row in df
-    print(df["embeddings"].iloc[0].reshape(512, 1).shape, emb.shape)
+    # print(df["embeddings"].iloc[0].reshape(512, 1).shape, emb.shape)
     df["dist"] = df["embeddings"].apply(lambda x: np.dot(x.reshape(1, 512), emb.T)/(np.linalg.norm(x) * np.linalg.norm(emb)))
-    print(df.head())
+    # print(df.head())
     df = df.sort_values("dist", ascending=False)
     return df.head(n)
 
@@ -76,3 +76,22 @@ def get_embeddings_df(folder = "/data/users/mpilligua/hackathon/embeddings"):
     df["img_name"] = img_name
     df["embeddings"] = embeddings
     return df 
+
+from pydub import AudioSegment
+import os
+
+def convert_to_wav(input_file, output_file):
+    # Load the audio file
+    audio = AudioSegment.from_file(input_file)
+
+    # Check if the input file is already in WAV format
+    if input_file.lower().endswith('.wav'):
+        print("Input file is already in WAV format.")
+        # return
+
+    # Convert to WAV format
+    audio.export(output_file, format="wav")
+    print("Conversion complete.")
+    
+    #return output_file
+    return output_file

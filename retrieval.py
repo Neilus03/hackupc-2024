@@ -10,9 +10,11 @@ import pandas as pd
 
 from fashion_clip.fashion_clip import FashionCLIP
 
-#get the description of the garment to retrieve via mp3
-description = mp3_to_text("Rev.mp3")
+audio = convert_to_wav("/data/users/mpilligua/hackathon/received_audio2.wav", "/data/users/mpilligua/hackathon/converted3.wav")
 
+#get the description of the garment to retrieve via mp3
+description = mp3_to_text(audio)
+print(f"Description: {description}")
 
 fclip = FashionCLIP('fashion-clip')
 

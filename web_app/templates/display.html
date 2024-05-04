@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retrieved Images</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#usage">USAGE</a></li>
+                <li><a href="/category/all">SHOPPING</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Retrieved Images</h1>
+        <div class="image-container">
+            {% for img_url in image_urls %}
+                <div class="retrieved-image">
+                    <img src="{{ img_url }}" alt="Retrieved Image" class="displayed-image">
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <a href="/" class="button">Back to Home</a>
+    </footer>
+</body>
+</html>

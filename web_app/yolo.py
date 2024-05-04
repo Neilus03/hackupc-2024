@@ -1,8 +1,6 @@
 import cv2
 from inference_sdk import InferenceHTTPClient
-
 import base64
-
 
 CLIENT = InferenceHTTPClient(
     api_url="https://detect.roboflow.com",
@@ -34,14 +32,10 @@ def detect_hand_gesture_webcam():
               print(resultt)
         '''
         
-        
         if cv2.waitKey(1) == ord('q'):  # Quit on 'q' key press
             break
     cap.release()
     cv2.destroyAllWindows()
-
-
-
 
 detect_hand_gesture_webcam()
 

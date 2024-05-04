@@ -33,7 +33,9 @@ def get_closest_from_embbedings(df, emb, n=1, kmeans=None):
     Get the closest n images in the same cluster
     """
     if kmeans is not None:
-        cluster = kmeans.predict(emb)
+        temp = pd.DataFrame()
+        temp["embeddings"] = [emb]
+        cluster = kmeans.predict(temp["embeddings"].iloc[0].tolist())[0]
         df = df[df["cluster"] == cluster]
     
     # compute the cosine similarity between emb and each row in df
@@ -113,7 +115,7 @@ def ourName2TheirName():
     """
     Convert our name (40316/3.jpg) to their name (https://static.zara.net/photos///2024/V/0/3/p/4428/664/500/2/w/2048/4428664500_3_1_1.jpg?ts=1709724616829)
     """
-    with open("/data/users/mpilligua/hackupc-2024/filenames.txt") as f:
+    with open("/data/users/mpilligua/hackupc-2024/data/filenames.txt") as f:
         lines = f.readlines()
     
     txt2dict = {}

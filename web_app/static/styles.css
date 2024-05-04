@@ -73,13 +73,19 @@ h2 {
 .center-content, .clothing-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
     padding: 20px;
-    height: 80vh;
+    max-height: 600px;  /* Maximum height of the container */
+    overflow-y: auto;  /* Enable vertical scrolling when content exceeds the container height */
     z-index: 100;  /* Higher z-index to ensure it's above the floating dots */
 }
 
+@media (max-width: 768px) {
+    .clothing-container {
+        max-height: 400px;  /* Adjust max-height for smaller devices */
+    }
+}
 
 .category, .button {
     margin: 10px;
@@ -101,16 +107,20 @@ h2 {
 }
 
 .button {
-    z-index: 100;  /* Same for the button */
-    position: relative; /* Ensure position is set */
-    display: block;
-    margin: 20px auto;
+    z-index: 100;  /* Ensures the button is above other content */
+    position: relative; /* Standard positioning */
+    display: block; /* Block display but with specific width to avoid full width */
+    margin: 20px auto; /* Center the button horizontally */
     text-decoration: none;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    padding: 15px 30px;
-    border-radius: 0px;
-    font-size: 20px;
+    background-color: rgb(0, 0, 0); /* Dark background for the button */
+    color: white; /* Text color */
+    padding: 10px; /* Smaller padding to reduce overall size */
+    width: 50px; /* Specific width for square shape */
+    height: 50px; /* Specific height for square shape */
+    border-radius: 0%; /* Optional: Makes the button circular */
+    font-size: 16px; /* Smaller font size for the text inside the button */
+    line-height: 30px; /* Aligns text vertically */
+    text-align: center; /* Aligns text horizontally */
 }
 
 .button:hover, .category:hover {

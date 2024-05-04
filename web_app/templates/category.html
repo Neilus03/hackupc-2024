@@ -4,34 +4,42 @@
     <meta charset="UTF-8">
     <title>All Clothes</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="/static/favicon_io/favicon.ico" rel="icon">
 </head>
 <body>
-    <h1>Our Clothing Selection</h1>
-    <div class="clothing-container">
-        {% for category, image in categories.items() %}
-            <div class="category" id="category-{{ category }}">
-                <img src="{{ image }}" alt="{{ category }}" class="clothing-image" onclick="expandCategory('{{ category }}')">
-                <div class="additional-images" style="display:none;">
-                    {% for img in all_images[category] %}
-                        <img src="{{ img }}" alt="{{ category }}" class="clothing-image">
-                    {% endfor %}
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#usage">Usage</a></li>
+                <li><a href="/category/all">Shopping</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Our Clothing Selection</h1>
+        <button onclick="startRecording()" class="mic-button"><i class="fas fa-microphone"></i></button>
+        <div class="clothing-container">
+            {% for category, image in categories.items() %}
+                <div class="category" id="category-{{ category }}">
+                    <img src="{{ image }}" alt="{{ category }}" class="clothing-image">
+                    <div class="additional-images" style="display:none;">
+                        {% for img in all_images[category] %}
+                            <img src="{{ img }}" alt="{{ category }}" class="clothing-image">
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
-    <a href="/" class="button">Back to Home</a>
-
-    <script>
-        function expandCategory(category) {
-            // Hide all categories
-            $('.category').hide();
-            // Show the selected category
-            $('#category-' + category).show();
-            // Display all images within the category
-            $('#category-' + category + ' .additional-images').show();
-        }
-    </script>
+            {% endfor %}
+        </div>
+        <script src="{{ url_for('static', filename='js/record.js') }}"></script>
+    </main>
+    
+    <footer>
+        <a href="/" class="button">Back to Home</a>
+    </footer>
 </body>
 </html>

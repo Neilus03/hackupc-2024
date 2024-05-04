@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
-import soundfile as sf
+import os
+from retrieval import retrieve
 
 app = Flask(__name__)
 
@@ -14,6 +15,10 @@ CLOTHING_IMAGES = {
     'jackets': data['IMAGE_VERSION_1'][15:20].tolist(),
     'shorts': data['IMAGE_VERSION_1'][20:25].tolist(),
 }
+
+# Ensure the audio directory exists
+audio_directory = 'web_app/audio/'
+os.makedirs(audio_directory, exist_ok=True)
 
 @app.route('/')
 def home():
@@ -31,9 +36,13 @@ def upload_audio():
         audio = request.files['audio']
         print("Audio File Received:", audio.filename)  # Debugging: log filename
         try:
-            filename = 'received_audio2.wav'
+            # Define the path to save the audio
+            filename = os.path.join(audio_directory, 'received_audio2.wav')
             audio.save(filename)
-            print("Audio Saved Successfully")  # Confirm audio is saved
+            
+            print("Audio Saved Successfully in", filename)  # Confirm audio is saved
+            retrieved_images = retrieve(filename)
+            print(retrieve.head())
             return jsonify({"message": "Audio saved successfully!"}), 200
         except Exception as e:
             print("Error processing audio file:", e)  # Log errors
@@ -41,5 +50,6 @@ def upload_audio():
     else:
         print("No audio file uploaded")  # Log if no file is detected
         return jsonify({"error": "No audio file uploaded"}), 400
+
 if __name__ == '__main__':
-    app.run(debug=False, port=8080)
+    app.run(debug=False, port=8040)

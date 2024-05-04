@@ -43,7 +43,9 @@ def upload_audio():
             print("Audio Saved Successfully in", filename)  # Confirm audio is saved
             retrieved_images = retrieve(filename)
             print(retrieve.head())
-            return jsonify({"message": "Audio saved successfully!"}), 200
+
+            image_urls = retrieved_images['img_link'].tolist()  # Convert URL column to a list
+            return render_template('display.html', image_urls=image_urls)
         except Exception as e:
             print("Error processing audio file:", e)  # Log errors
             return jsonify({"error": "Failed to process the audio file: " + str(e)}), 500

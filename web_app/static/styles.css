@@ -94,7 +94,7 @@ h4 {
 h2 {
     text-align: center;  /* Centers the text horizontally */
     font-size: 13em;      /* Makes the font size larger than the default */
-    color: #c5feff;         /* Optional: sets a different color, if needed */
+    color: #d0d0d0;         /* Optional: sets a different color, if needed */
     margin: 20px 0;      /* Adds spacing above and below the text */
 }
 

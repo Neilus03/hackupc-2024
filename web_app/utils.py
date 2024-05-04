@@ -1,10 +1,3 @@
-#   folder img_name                                         embeddings  cluster
-# 0  18131        1  [-0.3950624, 1.0118845, -0.2195734, -0.6599766...  0
-# 1  31090        1  [-0.05779321, 0.88969994, 0.68793654, -0.15897...  1
-# 2  30819        1  [-0.1456738, -0.15988454, -0.52963406, -0.4746...  10
-# 3  27784        1  [0.11842453, 1.0050128, -0.019765982, -0.19121...  2
-# 4  23851        1  [0.03181005, 1.5079372, -0.035510685, -0.48048...  43
-
 import numpy as np
 import os
 from collections import Counter
@@ -12,12 +5,12 @@ import pandas as pd
 from tqdm import tqdm
 from pydub import AudioSegment
 import os
+from sklearn.cluster import KMeans
 
 def get_closest_in_same_cluster(df, folder, file, n=1):
     """
     Get the closest n images in the same cluster
     """
-    
     row = df[df["folder"] == folder & df["file"] == file]
     cluster = row["cluster"].values[0]
     emb = row["embeddings"].values[0]
@@ -87,7 +80,7 @@ def compute_KMeans(df, n_clusters=50):
     """
     Compute KMeans clustering
     """
-    from sklearn.cluster import KMeans
+    
     kmeans = KMeans(n_clusters=n_clusters, random_state=0)
     df["cluster"] = kmeans.fit(df["embeddings"].values.tolist()).labels_
     return df, kmeans

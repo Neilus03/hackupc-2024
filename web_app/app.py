@@ -5,7 +5,7 @@ from retrieval import retrieve
 
 app = Flask(__name__)
 
-data = pd.read_csv('.\inditextech_hackupc_challenge_images.csv')
+data = pd.read_csv('web_app\inditextech_hackupc_challenge_images.csv')
 
 # Expanded database of images sampling randomly from the original dataset
 CLOTHING_IMAGES = {
@@ -41,7 +41,7 @@ def upload_audio():
             audio.save(filename)
             
             print("Audio Saved Successfully in", filename)  # Confirm audio is saved
-            retrieved_images = retrieve(filename)
+            retrieved_images = retrieve(filename, kmeans=None)  # Retrieve images
             print(retrieve.head())
 
             image_urls = retrieved_images['img_link'].tolist()  # Convert URL column to a list

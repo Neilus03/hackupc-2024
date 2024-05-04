@@ -21,11 +21,11 @@ import requests
 from PIL import Image
 from io import BytesIO
 
+
 class GarmentTripletDataset(Dataset):
     def __init__(self, root_dir, transform=None):
         self.root_dir = root_dir
         self.transform = transform
-        # Filter to ensure we are only adding directories that contain images
         self.garments = [d for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d))]
         self.garments = [g for g in self.garments if len(os.listdir(os.path.join(root_dir, g))) >= 3]
 
@@ -34,29 +34,23 @@ class GarmentTripletDataset(Dataset):
 
     def __getitem__(self, idx):
         garment_folder = os.path.join(self.root_dir, self.garments[idx])
-        views = [f for f in os.listdir(garment_folder) if not os.path.isdir(os.path.join(garment_folder, f))]
-        
-        print(f"Garment folder: {garment_folder}")  # Debug print
-        print(f"Available views: {views}")  # Debug print
+        views = [f for f in os.listdir(garment_folder) if f.endswith('.jpg')]
 
         if len(views) < 3:
-            raise Exception("Not enough images to form a triplet")
+            raise ValueError("Not enough images to form a triplet")
 
         anchor_idx, positive_idx = random.sample(range(len(views)), 2)
-        anchor_path = os.path.join(garment_folder, views[anchor_idx])
-        positive_path = os.path.join(garment_folder, views[positive_idx])
-
-        print(f"Anchor path: {anchor_path}")  # Debug print
-        print(f"Positive path: {positive_path}")  # Debug print
-
-        anchor = Image.open(anchor_path)
-        positive = Image.open(positive_path)
-
-        # For the negative sample, ensure a different garment is chosen
         negative_garment_idx = (idx + random.randint(1, len(self.garments) - 1)) % len(self.garments)
         negative_garment_folder = os.path.join(self.root_dir, self.garments[negative_garment_idx])
-        negative_views = [f for f in os.listdir(negative_garment_folder) if not os.path.isdir(os.path.join(negative_garment_folder, f))]
-        negative = Image.open(os.path.join(negative_garment_folder, negative_views[random.randint(0, len(negative_views) - 1)]))
+        negative_views = [f for f in os.listdir(negative_garment_folder) if f.endswith('.jpg')]
+
+        try:
+            anchor = Image.open(os.path.join(garment_folder, views[anchor_idx]))
+            positive = Image.open(os.path.join(garment_folder, views[positive_idx]))
+            negative = Image.open(os.path.join(negative_garment_folder, negative_views[random.randint(0, len(negative_views) - 1)]))
+        except IOError as e:
+            print(f"Failed to load image: {e}")
+            return None
 
         if self.transform:
             anchor = self.transform(anchor)
@@ -65,22 +59,18 @@ class GarmentTripletDataset(Dataset):
 
         return anchor, positive, negative
 
-
-# Define transforms
+# Set up transformations and data loader
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-# Initialize dataset and dataloader
-root_dir = 'C:/Users/neild/OneDrive/Escritorio/hackupc-2024/images'  # Specify the directory where images are stored
+root_dir = 'C:/Users/neild/OneDrive/Escritorio/hackupc-2024/images'
 dataset = GarmentTripletDataset(root_dir, transform=transform)
-dataloader = DataLoader(dataset, batch_size=4, shuffle=True)
+dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
-# Model setup and training (not shown here for brevity)
-
-
+# You can print dataloader to check if it's set up correctly
 print(dataloader)
 
 # Check if CUDA is available and set the device accordingly

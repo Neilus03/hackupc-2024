@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 import pandas as pd
 import os
 from retrieval import retrieve
@@ -45,13 +45,19 @@ def upload_audio():
             print(retrieve.head())
 
             image_urls = retrieved_images['img_link'].tolist()  # Convert URL column to a list
-            return render_template('display.html', image_urls=image_urls)
+            return redirect(url_for('display', image_urls=image_urls))  # Redirect to display images
+        
         except Exception as e:
             print("Error processing audio file:", e)  # Log errors
             return jsonify({"error": "Failed to process the audio file: " + str(e)}), 500
     else:
         print("No audio file uploaded")  # Log if no file is detected
         return jsonify({"error": "No audio file uploaded"}), 400
+
+@app.route('/display', methods=['GET'])
+def display():
+    image_urls = request.args.get('image_urls').split(',')
+    return render_template('display.html', image_urls=image_urls)
 
 if __name__ == '__main__':
     app.run(debug=False, port=8080)

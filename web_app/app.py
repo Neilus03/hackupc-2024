@@ -2,10 +2,16 @@ from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import os
 from retrieval import retrieve
+from fashion_clip.fashion_clip import FashionCLIP
+import pickle
 
 app = Flask(__name__)
 
-data = pd.read_csv('web_app\inditextech_hackupc_challenge_images.csv')
+fclip = FashionCLIP('fashion-clip')
+df = pd.read_pickle("/data/users/mpilligua/hackupc-2024/data/df.pkl")
+kmeans = pickle.load(open("/data/users/mpilligua/hackupc-2024/data/kmeans.pkl", "rb"))
+
+data = pd.read_csv('/data/users/mpilligua/hackupc-2024/data/inditextech_hackupc_challenge_images.csv')
 
 # Expanded database of images sampling randomly from the original dataset
 CLOTHING_IMAGES = {
@@ -19,6 +25,8 @@ CLOTHING_IMAGES = {
 # Ensure the audio directory exists
 audio_directory = 'web_app/audio/'
 os.makedirs(audio_directory, exist_ok=True)
+
+pd.set_option('display.max_colwidth', None)
 
 @app.route('/')
 def home():
@@ -41,8 +49,8 @@ def upload_audio():
             audio.save(filename)
             
             print("Audio Saved Successfully in", filename)  # Confirm audio is saved
-            retrieved_images = retrieve(filename, kmeans=None)  # Retrieve images
-            print(retrieve.head())
+            retrieved_images = retrieve(filename, df, kmeans, fclip) # Retrieve images
+            print(retrieved_images.head())
 
             image_urls = retrieved_images['img_link'].tolist()  # Convert URL column to a list
             return render_template('display.html', image_urls=image_urls)

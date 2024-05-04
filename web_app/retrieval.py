@@ -8,7 +8,14 @@ from collections import Counter
 import pandas as pd
 from fashion_clip.fashion_clip import FashionCLIP
 
+<<<<<<< HEAD
 def retrieve(wav_file, df, kmeans, fclip):
+=======
+
+
+
+def retrieve(wav_file, kmeans=None):
+>>>>>>> 450984ff2659f8fe0a3dd75b89b1553c2bc9430e
 
     print("Retrieving images...")
     audio = convert_to_wav(wav_file, f"{wav_file[:-4]}_converted.wav")

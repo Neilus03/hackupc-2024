@@ -114,7 +114,7 @@ def ourName2TheirName():
     txt2dict = {}
     for line in tqdm(lines):
         try:
-            txt2dict[line.split(": ")[0]] = line.split(": ")[1]
+            txt2dict[line.split(": ")[0]] = line.split(": ")[1][:-1]
         except:
             print(line)
     return txt2dict

@@ -26,7 +26,12 @@
                 </div>
             {% endfor %}
         </div>
+        <video id="video" width="640" height="480" autoplay></video>
+        <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+        <button id="start">Start Recognition</button>
+        <script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
     </main>
+    
 
     <footer>
         <a href="/" class="button">Back to Home</a>

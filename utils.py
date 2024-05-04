@@ -95,3 +95,15 @@ def convert_to_wav(input_file, output_file):
     
     #return output_file
     return output_file
+
+
+def ourName2TheirName(our_name):
+    """
+    Convert our name (40316/3.jpg) to their name (https://static.zara.net/photos///2024/V/0/3/p/4428/664/500/2/w/2048/4428664500_3_1_1.jpg?ts=1709724616829)
+    """
+    with open("/data/users/mpilligua/hackathon/images/filenames.txt") as f:
+        lines = f.readlines()
+        
+    for line in lines:
+        if our_name in line:
+            return line.split(": ")[1]

@@ -5,7 +5,11 @@
 # 3  27784        1  [0.11842453, 1.0050128, -0.019765982, -0.19121...  2
 # 4  23851        1  [0.03181005, 1.5079372, -0.035510685, -0.48048...  43
 
+
 import numpy as np
+import os
+from collections import Counter
+import pandas as pd
 
 def get_closest_in_same_cluster(df, folder, file, n=1):
     """
@@ -20,6 +24,7 @@ def get_closest_in_same_cluster(df, folder, file, n=1):
     itemsInSameCluster["dist"] = itemsInSameCluster["embeddings"].apply(lambda x: np.linalg.norm(x - emb))
     itemsInSameCluster = itemsInSameCluster.sort_values("dist")
     return itemsInSameCluster.head(n)
+
 
 def get_closest_from_embbedings(df, emb, n=1):
     """
@@ -53,11 +58,6 @@ def embed_text(text, fclip):
     
     return fclip.encode_text(text, batch_size=32)
 
-import numpy as np
-import os
-from collections import Counter
-import pandas as pd
-
 def get_embeddings_df(folder = "/data/users/mpilligua/hackathon/embeddings"):
     # for each garment
     embeddings = []
@@ -76,16 +76,3 @@ def get_embeddings_df(folder = "/data/users/mpilligua/hackathon/embeddings"):
     df["img_name"] = img_name
     df["embeddings"] = embeddings
     return df 
-
-if __name__ == "__main__":
-    import pandas as pd
-    from fashion_clip.fashion_clip import FashionCLIP
-    
-    fclip = FashionCLIP('fashion-clip')
-    
-    df = get_embeddings_df()
-    embedding_text = embed_text(["Hi, I'd like to see how a green skirt looks like"], fclip)
-    
-    closest = get_closest_from_embbedings(df, embedding_text, n=5)
-    
-    print(closest)

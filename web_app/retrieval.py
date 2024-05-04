@@ -11,7 +11,7 @@ from fashion_clip.fashion_clip import FashionCLIP
 
 
 
-def retrieve(wav_file, kmeans):
+def retrieve(wav_file, kmeans=None):
 
     print("Retrieving images...")
     audio = convert_to_wav(wav_file, f"{wav_file[:-4]}_converted.wav")

@@ -41,7 +41,7 @@ python app.py
 After launching the app, navigate to `localhost:5000` in your web browser to start using Inditech. Use your microphone for voice commands and your webcam for gesture recognition.
 
 ## How It Works: In Depth Explanation
-
+...
 
 ## Contributing
 

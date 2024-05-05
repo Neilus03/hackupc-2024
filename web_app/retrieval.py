@@ -20,6 +20,8 @@ def retrieve(wav_file, df, kmeans, fclip):
 
     closest = get_closest_from_embbedings(df, embedding_text, n=10, kmeans=kmeans)
 
+    closest.to_pickle("/data/users/mpilligua/hackupc-2024/data/closest.pkl")
+
     return closest
 
 if __name__ == "__main__":

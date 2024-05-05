@@ -31,6 +31,8 @@ function startRecording() {
                   .then(data => {
                     console.log("Server response:", data);  // Debugging: log server response
                     button.disabled = false;
+                    window.location.href = "/display?image_urls=" +data["images"];
+
                 }).catch(error => console.error("Error uploading file:", error));
             });
 

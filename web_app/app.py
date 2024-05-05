@@ -32,7 +32,7 @@ pd.set_option('display.max_colwidth', None)
 def home():
     return render_template('home.html')
 
-@app.route('/')
+@app.route('/aboutus')
 def aboutus():
     return render_template('aboutus.html')
 
@@ -54,11 +54,11 @@ def upload_audio():
         
         print("Audio Saved Successfully in", filename)  # Confirm audio is saved
         retrieved_images = retrieve(filename, df, kmeans, fclip) # Retrieve images
-        print(retrieved_images.head())
+        # print(retrieved_images.head())
 
         image_urls = retrieved_images['img_link'].tolist()  # Convert URL column to a list
-        print("Image URLs:", image_urls)  # Log the image URLs
-        return redirect(url_for('display', image_urls=image_urls))  # Redirect to display images
+        # print("Image URLs:", image_urls)  # Log the image URLs
+        return {"images": image_urls}  # Redirect to display images
         
         # except Exception as e:
         #     print("Error processing audio file:", e)  # Log errors
@@ -67,11 +67,16 @@ def upload_audio():
         print("No audio file uploaded")  # Log if no file is detected
         return jsonify({"error": "No audio file uploaded"}), 400
 
-@app.route('/display', methods=['GET'])
+@app.route('/display')
 def display():
-    image_urls = request.args.get('image_urls')
-    print("Displaying images...")  # Log the images to display
-    return render_template('display.html', image_urls=image_urls)
-
+    image_urls = request.args.get('image_urls').split(",")
+    if image_urls:
+        image_urls = image_urls  # Convert the comma-separated string back to a list
+        # print("Image URLs:", image_urls)
+        print("Displaying images...")  # Log the images to display
+        return render_template('display.html', image_urls=image_urls)
+    else:
+        return "No images to display", 404
+    
 if __name__ == '__main__':
-    app.run(debug=False, port=8030)
+    app.run(debug=False, port=8020)

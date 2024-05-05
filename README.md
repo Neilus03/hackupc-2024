@@ -62,7 +62,7 @@ We welcome contributions! Please read `CONTRIBUTING.md` for details on our code 
 
 ## Authors
 
-- **Neil de la Fuente** - [Github](https://github.com/Neilus03) - [LinkedIn](https://www.linkedin.com/in/neil-de-la-fuente/)
+- **Neil de la Fuente** - [Github](https://github.com/Neilus03) - [![Linkedin](https://github.com/Neilus03/hackupc-2024/assets/87651732/c359230d-3707-4c3e-9f6e-38cf67e3582f)](https://www.linkedin.com/in/neil-de-la-fuente/) - 
 - **Maria Pilligua** - [Github](https://github.com/mpilligua) - [LinkedIn](https://www.linkedin.com/in/mariapilligua/)
 - **Daniel Vidal** - [Github](https://github.com/Dani13vg) - [LinkedIn](https://www.linkedin.com/in/daniel-alejandro-vidal-guerra-21386b266/)
 - **Alex Roldan** - [Github](https://github.com/alrocb) - [LinkedIn](https://www.linkedin.com/in/alex-roldan-55488a215/)

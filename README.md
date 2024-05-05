@@ -1,7 +1,5 @@
 # <div align="center">Inditech: Multimodal AI Shopping App for ZARA
 
-![image](https://github.com/Neilus03/hackupc-2024/assets/127413352/62cca9e3-d9fc-4cb2-a87d-c0c1fb452101)
-
 
 ## Overview
 
@@ -73,4 +71,6 @@ We welcome contributions! Please read `CONTRIBUTING.md` for details on our code 
 - Thanks to Inditex for proposing the challenge and providing the data.
 - Special thanks to mentors and everyone who supported us during the hackathon.
 
+
+![image](https://github.com/Neilus03/hackupc-2024/assets/127413352/62cca9e3-d9fc-4cb2-a87d-c0c1fb452101)
 

@@ -40,21 +40,6 @@ python app.py
 
 After launching the app, navigate to `localhost:5000` in your web browser to start using Inditech. Use your microphone for voice commands and your webcam for gesture recognition.
 
-## Challenges We Ran Into
-
-During development, we encountered issues such as library compatibility conflicts and difficulties in implementing the YOLO model for gesture detection, especially in varying lighting conditions. Maintaining a stable connection with our web hosting service also posed a significant challenge.
-
-## Accomplishments
-
-Despite these challenges, Inditech is functional and effective in understanding user inputs through both voice and gestures. The technology has significant potential for adoption by retail giants like ZARA.
-
-## Lessons Learned
-
-This project deepened our understanding of applying multimodal AI in real-world applications, enhancing our debugging skills and teamwork in a dynamic setting.
-
-## Future Plans
-
-We aim to refine the gesture recognition accuracy and pilot this system with ZARA to evaluate its impact on consumer engagement and sales.
 
 ## Contributing
 

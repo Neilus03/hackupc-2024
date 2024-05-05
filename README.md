@@ -43,7 +43,7 @@ After launching the app, navigate to `localhost:5000` in your web browser to sta
 ## How It Works: In Depth Explanation
 
 ### Voice Command Processing
-Inditech uses OpenAI Whisper to process voice commands. When a user speaks into the app, Whisper converts the spoken language into text. This text is then passed through natural language processing models from Hugging Face's Transformers library, which interpret the user's intent and extract relevant keywords for product search. This allows the app to handle a wide range of voice inputs and convert them into actionable queries tailored to ZARA's product catalog.
+Inditech uses OpenAI Whisper to process voice commands. When a user speaks into the app, Whisper converts the spoken language into text. This text is passed through the Fashion-CLIP model to get the embedding and find the most matching images. This allows the app to handle a wide range of voice inputs, and real natural language, like divagation and doubt, and convert them into actionable queries tailored to ZARA's product catalog.
 
 ### Gesture Recognition
 For gesture-based navigation, Inditech utilizes OpenCV to capture and analyze real-time video from the user's webcam. The system is trained to recognize specific hand gestures—such as thumbs up and thumbs down—using a YOLO model. This model has been trained on a diverse dataset to ensure it performs well across different lighting conditions and skin tones. Gesture inputs are used to navigate through product options without the need for traditional clicking, making the shopping experience smoother and more interactive.

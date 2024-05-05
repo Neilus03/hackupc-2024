@@ -62,10 +62,10 @@ We welcome contributions! Please read `CONTRIBUTING.md` for details on our code 
 
 ## Authors
 
-- **[Your Name](https://github.com/YourGitHubProfile)** - *Role* - [LinkedIn](https://www.linkedin.com/in/YourLinkedInProfile)
-- **[Teammate's Name](https://github.com/TeammateGitHubProfile)** - *Role* - [LinkedIn](https://www.linkedin.com/in/TeammateLinkedInProfile)
-- More team members...
-
+- **[Neil De La Fuente](https://github.com/Neilus03)** - [LinkedIn](https://www.linkedin.com/in/neil-de-la-fuente/)
+- **[Maria Pilligua](https://github.com/mpilligua)** - [LinkedIn](https://www.linkedin.com/in/mariapilligua/)
+- **[Daniel Vidal](https://github.com/Dani13vg)** - [LinkedIn](https://www.linkedin.com/in/daniel-alejandro-vidal-guerra-21386b266/)
+- **[Alex Roldan](https://github.com/alrocb)** - [LinkedIn](https://www.linkedin.com/in/alex-roldan-55488a215/)
 
 ## Acknowledgments
 

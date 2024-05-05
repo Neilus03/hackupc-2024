@@ -11,5 +11,3 @@ The task is computationally intensive, requiring over 8 billion computations due
 
 The algorithm's accuracy and speed will be key evaluation criteria. Advanced teams may use provided photos to create a website showcasing their work. Senior teams could infer garment details (year, season, indicators) from generated URLs.
 
-OUR PROJECT:
-

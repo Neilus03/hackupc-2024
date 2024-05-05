@@ -5,6 +5,7 @@
     <title>Retrieved Images</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="{{ url_for('static', filename='js/actions.js') }}"></script> <!-- Linking JS file -->
 </head>
 <body>
     <header>
@@ -23,7 +24,7 @@
         <div class="clothing-container">
             {% for img_url in image_urls %}
                 <div class="category">
-                    <img src="{{ img_url }}" alt="Retrieved Image" class="clothing-image">
+                    <img src="{{ img_url }}" alt="Retrieved Image" class="clothing-image" onclick="redirectToImageView('{{ img_url }}')">
                 </div>
             {% endfor %}
         </div>

@@ -9,13 +9,13 @@ Inditech is designed to revolutionize the online shopping experience at ZARA by 
 
 ### Inspiration
 
-The inspiration behind Inditech was to leverage the potential of AI to transform e-commerce. By integrating voice and gesture-based navigation, we aimed to create an intuitive and engaging shopping experience that aligns with the modern consumer's expectations.
+Our goal was to integrate multimodal AI capabilities to enhance the e-commerce experience for ZARA. We recognized the potential of voice and gesture-based navigation to simplify and enrich online shopping, making it more interactive and user-friendly.
 
 ### Features
 
 - **Voice Search**: Users can speak to the app to find products, using natural language processing to analyze and respond to user queries.
 - **Gesture Navigation**: The app includes a hand gesture detection algorithm that allows users to give thumbs up or thumbs down to navigate through product options.
-- **3D Product Views**: Clicking on products displays them from various angles, enhancing the virtual shopping experience.
+- **Multiple Product Views**: Clicking on products displays them from various angles, enhancing the virtual shopping experience.
 
 ## Technology Stack
 

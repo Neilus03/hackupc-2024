@@ -60,10 +60,6 @@ The backend, powered by Python and Flask, serves as the bridge between the AI mo
 ### Challenges and Solutions
 Integrating multimodal inputs presented unique challenges, particularly in synchronizing voice and gesture inputs smoothly. To address this, we implemented asynchronous processing techniques that allow the system to handle multiple input modes efficiently without lagging. Additionally, continuous integration and testing were crucial in ensuring that updates did not break functionality, especially when dealing with external APIs and databases.
 
-## Contributing
-
-We welcome contributions! Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Authors
 
 - **Neil de la Fuente** - [Github](https://github.com/Neilus03) - [LinkedIn](https://www.linkedin.com/in/neil-de-la-fuente/)

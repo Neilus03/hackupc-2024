@@ -62,7 +62,7 @@ We welcome contributions! Please read `CONTRIBUTING.md` for details on our code 
 
 ## Authors
 
-- **Neil de la Fuente** - [Github](https://github.com/Neilus03) - [![Linkedin](https://github.com/Neilus03/hackupc-2024/assets/87651732/c359230d-3707-4c3e-9f6e-38cf67e3582f)](https://www.linkedin.com/in/neil-de-la-fuente/) - 
+- **Neil de la Fuente** - [Github](https://github.com/Neilus03) - [![Linkedin](https://github.com/Neilus03/hackupc-2024/assets/87651732/2a84baae-a67b-4c08-8cc0-ddb717b2dcad)](https://www.linkedin.com/in/neil-de-la-fuente/) - 
 - **Maria Pilligua** - [Github](https://github.com/mpilligua) - [LinkedIn](https://www.linkedin.com/in/mariapilligua/)
 - **Daniel Vidal** - [Github](https://github.com/Dani13vg) - [LinkedIn](https://www.linkedin.com/in/daniel-alejandro-vidal-guerra-21386b266/)
 - **Alex Roldan** - [Github](https://github.com/alrocb) - [LinkedIn](https://www.linkedin.com/in/alex-roldan-55488a215/)
@@ -72,6 +72,7 @@ We welcome contributions! Please read `CONTRIBUTING.md` for details on our code 
 - Thanks to HackUPC 2024 for the opportunity to develop this innovative solution.
 - Thanks to Inditex for proposing the challenge and providing the data.
 - Special thanks to mentors and everyone who supported us during the hackathon.
+
 
 
 ![image](https://github.com/Neilus03/hackupc-2024/assets/127413352/62cca9e3-d9fc-4cb2-a87d-c0c1fb452101)

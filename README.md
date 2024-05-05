@@ -34,3 +34,43 @@ cd hackupc-2024
 pip install -r requirements.txt
 # Run the application
 python app.py
+```
+
+## Usage
+
+After launching the app, navigate to `localhost:5000` in your web browser to start using Inditech. Use your microphone for voice commands and your webcam for gesture recognition.
+
+## Challenges We Ran Into
+
+During development, we encountered issues such as library compatibility conflicts and difficulties in implementing the YOLO model for gesture detection, especially in varying lighting conditions. Maintaining a stable connection with our web hosting service also posed a significant challenge.
+
+## Accomplishments
+
+Despite these challenges, Inditech is functional and effective in understanding user inputs through both voice and gestures. The technology has significant potential for adoption by retail giants like ZARA.
+
+## Lessons Learned
+
+This project deepened our understanding of applying multimodal AI in real-world applications, enhancing our debugging skills and teamwork in a dynamic setting.
+
+## Future Plans
+
+We aim to refine the gesture recognition accuracy, expand the product catalog, and pilot this system with ZARA to evaluate its impact on consumer engagement and sales.
+
+## Contributing
+
+We welcome contributions! Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Authors
+
+- **[Your Name](https://github.com/YourGitHubProfile)** - *Role* - [LinkedIn](https://www.linkedin.com/in/YourLinkedInProfile)
+- **[Teammate's Name](https://github.com/TeammateGitHubProfile)** - *Role* - [LinkedIn](https://www.linkedin.com/in/TeammateLinkedInProfile)
+- More team members...
+
+
+## Acknowledgments
+
+- Thanks to HackUPC 2024 for the opportunity to develop this innovative solution.
+- Thanks to Inditex for proposing the challenge and providing the data.
+- Special thanks to mentors and everyone who supported us during the hackathon.
+
+

@@ -1,5 +1,7 @@
 # <div align="center">Inditech: Multimodal AI Shopping App for ZARA
 
+![image](https://github.com/Neilus03/hackupc-2024/assets/87651732/c359230d-3707-4c3e-9f6e-38cf67e3582f)
+
 
 ## Overview
 

@@ -54,7 +54,7 @@ This project deepened our understanding of applying multimodal AI in real-world 
 
 ## Future Plans
 
-We aim to refine the gesture recognition accuracy, expand the product catalog, and pilot this system with ZARA to evaluate its impact on consumer engagement and sales.
+We aim to refine the gesture recognition accuracy and pilot this system with ZARA to evaluate its impact on consumer engagement and sales.
 
 ## Contributing
 

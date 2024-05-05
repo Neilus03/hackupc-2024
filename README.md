@@ -41,7 +41,24 @@ python app.py
 After launching the app, navigate to `localhost:5000` in your web browser to start using Inditech. Use your microphone for voice commands and your webcam for gesture recognition.
 
 ## How It Works: In Depth Explanation
-...
+
+### Voice Command Processing
+Inditech uses OpenAI Whisper to process voice commands. When a user speaks into the app, Whisper converts the spoken language into text. This text is then passed through natural language processing models from Hugging Face's Transformers library, which interpret the user's intent and extract relevant keywords for product search. This allows the app to handle a wide range of voice inputs and convert them into actionable queries tailored to ZARA's product catalog.
+
+### Gesture Recognition
+For gesture-based navigation, Inditech utilizes OpenCV to capture and analyze real-time video from the user's webcam. The system is trained to recognize specific hand gestures—such as thumbs up and thumbs down—using a YOLO model. This model has been trained on a diverse dataset to ensure it performs well across different lighting conditions and skin tones. Gesture inputs are used to navigate through product options without the need for traditional clicking, making the shopping experience smoother and more interactive.
+
+### Product Display and Interaction
+Once a product is selected via voice or gesture, the app retrieves detailed information and images from a backend database managed by Flask. The frontend, developed with HTML, CSS, and JavaScript, displays these products dynamically. Users can interact with the product images to view them from different angles, enhancing the visual aspect of online shopping.
+
+### Utilizing Fashion-CLIP for Product Matching
+Fashion-CLIP is crucial for enhancing the accuracy of product recommendations. Once the intent and keywords are extracted from user commands, Fashion-CLIP generates visual and textual embeddings that capture the stylistic and contextual nuances of fashion items. These embeddings are then used to match the user's verbal requests with the most relevant products in ZARA's catalog. By comparing embeddings, Inditech can identify items that visually and contextually align with user preferences, significantly improving the relevance of search results.
+
+### Backend Integration
+The backend, powered by Python and Flask, serves as the bridge between the AI models and the frontend interface. It handles all server-side logic, including API calls to ZARA's database for product information, processing user commands, and managing user sessions. This architecture ensures that Inditech is scalable, maintainable, and responsive.
+
+### Challenges and Solutions
+Integrating multimodal inputs presented unique challenges, particularly in synchronizing voice and gesture inputs smoothly. To address this, we implemented asynchronous processing techniques that allow the system to handle multiple input modes efficiently without lagging. Additionally, continuous integration and testing were crucial in ensuring that updates did not break functionality, especially when dealing with external APIs and databases.
 
 ## Contributing
 

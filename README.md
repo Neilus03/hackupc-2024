@@ -62,8 +62,8 @@ We welcome contributions! Please read `CONTRIBUTING.md` for details on our code 
 
 ## Authors
 
-- **[Neil De La Fuente](https://github.com/Neilus03)** - [LinkedIn](https://www.linkedin.com/in/neil-de-la-fuente/)
-- **[Maria Pilligua](https://github.com/mpilligua)** - [LinkedIn](https://www.linkedin.com/in/mariapilligua/)
+- **Neil de la Fuente** - [Github](https://github.com/Neilus03) - [LinkedIn](https://www.linkedin.com/in/neil-de-la-fuente/)
+- **Maria Pilligua** - [Github](https://github.com/mpilligua)** - [LinkedIn](https://www.linkedin.com/in/mariapilligua/)
 - **[Daniel Vidal](https://github.com/Dani13vg)** - [LinkedIn](https://www.linkedin.com/in/daniel-alejandro-vidal-guerra-21386b266/)
 - **[Alex Roldan](https://github.com/alrocb)** - [LinkedIn](https://www.linkedin.com/in/alex-roldan-55488a215/)
 

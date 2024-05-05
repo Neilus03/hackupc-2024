@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask App</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="runScriptBtn">Run Script</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#runScriptBtn').click(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: '/run_script',
+                    success: function(response) {
+                        console.log(response);
+                        // Handle success response here
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                        // Handle error here
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

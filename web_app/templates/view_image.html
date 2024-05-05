@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .image-container {
+            display: flex;  /* Enables flexbox layout */
+            justify-content: center;  /* Centers items on the line (horizontally) */
+            align-items: center;  /* Centers items along the cross-axis (vertically) */
+            flex-wrap: nowrap;  /* Prevents wrapping of items to the next line */
+            gap: 20px;  /* Space between each image */
+        }
+        .image-container img {
+            max-width: 30%;  /* Limits image width to 30% of the container */
+            height: auto;  /* Keeps the image aspect ratio */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Optional: adds shadow for better visibility */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/aboutus">ABOUT US</a></li>
+                <li><a href="/category/all">SHOPPING</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Retrieved Images</h1>
+        <div class="image-container">
+            {% for img_url in image_urls %}
+                <img src="{{ img_url }}" alt="Similar Image" class="displayed-image">
+            {% endfor %}
+        </div>
+    </main>
+
+</body>
+</html>

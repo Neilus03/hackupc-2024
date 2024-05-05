@@ -25,12 +25,12 @@ def detect_hand_gesture_webcam():
         # (This depends on the format of the result returned by the inference API)
         # Display the frame
         cv2.imshow('Hand Gesture Detection', frame)
-        '''
+        
         if result['predictions'] != []:
             for i in range(len(result['predictions'])):
               resultt = result['predictions'][i]['class']
-              print(resultt)
-        '''
+              if resultt in ['Thumbs up', 'Thumbs down']:
+                yield (resultt)
         
         if cv2.waitKey(1) == ord('q'):  # Quit on 'q' key press
             break
@@ -39,3 +39,6 @@ def detect_hand_gesture_webcam():
 
 detect_hand_gesture_webcam()
 
+if __name__ == '__main__':
+    detect_hand_gesture_webcam()  # Run the function
+    print("Hand gesture detection complete")  # Log completion

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Catalog - Class {{ category }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon_io/favicon.ico') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/aboutus">About Us</a></li>
+                <li><a href="/category/all">Shopping</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Images for Class {{ category }}</h1>
+        <div class="image-container">
+            {% for img_url in image_urls %}
+                <div class="image-box">
+                    <img src="{{ img_url }}" alt="Image" class="clothing-image">
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <a href="/" class="button">Back to Home</a>
+    </footer>
+</body>
+</html>

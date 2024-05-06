@@ -1,0 +1,8 @@
+*.npy
+*.jpg
+*.png
+*.zip
+*.wav
+*.json
+checkpoints/*
+*.pyc

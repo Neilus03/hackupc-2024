@@ -11,6 +11,10 @@ Inditech is designed to revolutionize the online shopping experience at ZARA by 
 
 Our goal was to integrate multimodal AI capabilities to enhance the e-commerce experience for ZARA. We recognized the potential of voice and gesture-based navigation to simplify and enrich online shopping, making it more interactive and user-friendly.
 
+### Network Architecture
+
+![width=800](assets/hackupc-24-pipeline.png)
+
 ### Features
 
 - **Voice Search**: Users can speak to the app to find products, using natural language processing to analyze and respond to user queries.

@@ -13,7 +13,8 @@ Our goal was to integrate multimodal AI capabilities to enhance the e-commerce e
 
 ### Network Architecture
 
-![width=800](assets/hackupc-24-pipeline.png)
+![hackupc-24-pipeline](https://github.com/Neilus03/hackupc-2024/assets/28900735/cba56294-57cd-43d4-8bfe-49ec58bdaddb)
+
 
 ### Features
 
